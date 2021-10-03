@@ -6,7 +6,6 @@ client = MongoClient('localhost', 27017)
 db = client.dbnews
 
 
-# 경향신문
 def crawler_daum_news(date):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
@@ -29,9 +28,9 @@ def crawler_daum_news(date):
         info_news = news.select_one('.cont_thumb > .tit_thumb > .info_news').text
         detail_content = news.select_one('.cont_thumb > .desc_thumb > .link_txt').text.strip()
 
-        soup2 = BeautifulSoup(requests.get(detail_url, headers=headers).text, 'html.parser')
-        imoticons = soup2.select_one('.emotion_list')
-        print(imoticons)
+        # soup2 = BeautifulSoup(requests.get(detail_url, headers=headers).text, 'html.parser')
+        # imoticons = soup2.select_one('.emotion_list')
+        # print(imoticons)
 
         doc = {
             'rank': rank,
@@ -41,8 +40,8 @@ def crawler_daum_news(date):
             'detail_url': detail_url,
             'img_url': img_url
         }
-        # db.headline.insert_one(doc)
-        # print(rank, info_news, title, detail_content, detail_url, img_url)
+        db.headline.insert_one(doc)
+        print(rank, info_news, title, detail_content, detail_url, img_url)
 
 
 date = ''
