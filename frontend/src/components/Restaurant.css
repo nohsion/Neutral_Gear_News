@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#cards {
+  width: 650px;
+  height: 260px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+#contents {
+  float: left;
+}
+
+.parent {
+  display: flex;
+}
+
+.child {
+  flex: 1;
+  text-align: left;
+}
+
+#likeButton {
+  text-align: right;
+}
+
+#detail {
+  text-align: center;
+}
+
+#button2 {
+  margin-top: 5px;
+}
+
+article {
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
