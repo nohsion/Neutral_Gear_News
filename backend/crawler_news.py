@@ -9,6 +9,11 @@ db = client.dbnews
 
 
 def crawler_daum_news(date):
+    db_list = client.list_database_names()
+    if 'dbnews' in db_list:
+        print('db 최신 뉴스로 새로고침')
+        client.drop_database('dbnews')
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
     }
