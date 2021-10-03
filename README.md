@@ -10,5 +10,7 @@
 # 외부 패키치 설치
 - Backend (Flask)
     - python 3.8 이상
+    - poetry 사용 (pip X)
+      - poetry install 로 라이브러리 설치
 - Fronted (React)
-    - yarn 사용 (npm 사용 x)
+    - yarn 사용 (npm X)
