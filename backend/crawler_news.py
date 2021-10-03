@@ -17,6 +17,7 @@ def crawler_daum_news(date):
         url += '?regDate=' + date
     data = requests.get(url, headers=headers)
     soup = BeautifulSoup(data.text, 'html.parser')
+    date = soup.select_one('.box_calendar > .screen_out').text
     news_list = soup.select('.list_news2 > li')
 
     options = webdriver.ChromeOptions()
@@ -51,6 +52,7 @@ def crawler_daum_news(date):
             'info_news': info_news,
             'title': title,
             'detail_content': detail_content,
+            'date': date,
             'detail_url': detail_url,
             'img_url': img_url,
             'nr_RECOMMEND': count_list[0],
